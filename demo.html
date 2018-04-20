@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+        }
+    </style>
+    <script src="js/GridBoard.js"></script>
+    <script src="js/ViewableBoard.js"></script>
+</head>
+
+<body>
+    <script src="js/gomoku.js"></script>
+    <script src="js/gomokuAI.js"></script>
+    <script>
+        (function () {
+            var gridClick = board.ongridclick;
+            board.ongridclick = function (grid) {
+                gridClick(grid);
+                if (player.piece != "B")
+                    turnToComputer(player.piece);
+            }
+        })();
+    </script>
+</body>
+
+</html>
