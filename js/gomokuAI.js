@@ -7,14 +7,14 @@ for (var grid of IGrids) allWins.push([grid, ...grid.getGridsByRelCrd("~4B")]); 
 for (var grid of HGrids) allWins.push([grid, ...grid.getGridsByRelCrd("~4R")]); //橫向
 for (var grid of XLGrids) allWins.push([grid, ...grid.getGridsByRelCrd("~4BR")]); //斜向
 for (var grid of XRGrids) allWins.push([grid, ...grid.getGridsByRelCrd("~4BL")]); //反斜向
-function turnToComputer(piece, once) {
+function turnToComputer(piece) {
     var atk = [[], [], []],
         def = [[], [], []],
         pAtk = [[], []],
         pDef = [[], []],
         spaceCrds = [],
         randomCrd = crds => crds[(Math.random() * crds.length) | 0];
-    function mostRepeatCrd(crds) {
+    function mostRepeatCrd(crds, once) {
         function counter(crd) {
             var count = 0;
             for (mCrd of crds) mCrd == crd && count++;
@@ -87,7 +87,8 @@ function turnToComputer(piece, once) {
                     "活四且雙三", "活四",
                     "防四且防雙", "防四",
                     "雙三", "防雙"
-                ][i]); */
+                ][i]
+            ); */
             var gridCrd = randomCrd(placeOrder[i]);
             board.clickGrid(gridCrd);
             return gridCrd;
