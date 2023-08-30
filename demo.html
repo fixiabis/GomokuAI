@@ -29,6 +29,13 @@
                 if (player.piece != "B")
                     turnToComputer(player.piece);
             }
+
+            var time = setInterval(function () {
+                if (player.winner) {
+                    alert(({ "B": "黑", "W": "白" }[player.winner]) + "方勝利！");
+                    board.clean();
+                }
+            }, 1);
         })();
     </script>
 </body>
